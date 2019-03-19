@@ -5,6 +5,7 @@ class CompaniesController < ApplicationController
   # GET /companies.json
   def index
     @companies = Company.all
+    @titulo = t('messages.listing', model: @companies.model_name.human(count: 2) )
   end
 
   # GET /companies/1
@@ -15,10 +16,12 @@ class CompaniesController < ApplicationController
   # GET /companies/new
   def new
     @company = Company.new
+    @titulo = t('messages.new', model: @company.model_name.human )
   end
 
   # GET /companies/1/edit
   def edit
+    @titulo = t('messages.edit', model: @company.model_name.human )
   end
 
   # POST /companies
@@ -26,7 +29,7 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.new(company_params)
     if @company.save
-      redirect_to(@company, notice: 'Empresa cadastrada com sucesso.')
+      redirect_to(@company, notice: t('messages.create_success', model: @company.model_name.human ), genero: 'a' )
     else
       render(:new)
     end
@@ -37,7 +40,7 @@ class CompaniesController < ApplicationController
   def update
     respond_to do |format|
       if @company.update(company_params)
-        redirect_to(@company, notice: 'Empresa atualizada com sucesso.')
+        redirect_to(@company, notice: t('messages.update_success', model: @company.model_name.human, genero: 'a' ) )
       else
         render(:edit)
       end
@@ -49,9 +52,9 @@ class CompaniesController < ApplicationController
   def destroy
     begin
       @company.destroy
-      redirect_to(lawyers_path, notice: 'Empresa excluído com sucesso.')
+      redirect_to(lawyers_path, notice: t('messages.destroy_success', model: @company.model_name.human, genero: 'a' ))
     rescue 
-      redirect_to(lawyers_path, notice: 'Não foi possível excluir.')
+      redirect_to(lawyers_path, notice: t('messages.destroy_fail') )
     end
   end
 

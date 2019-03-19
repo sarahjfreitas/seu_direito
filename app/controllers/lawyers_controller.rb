@@ -30,7 +30,7 @@ class LawyersController < ApplicationController
     @lawyer = Lawyer.new(lawyer_params)
 
     if @lawyer.save
-      redirect_to(@lawyer, notice: 'Advogado cadastrado com sucesso.')
+      redirect_to(@lawyer, notice: t('messages.update_success', model: @lawyer.model_name.human, genero: 'o' ))
     else
       render(:new)
     end
@@ -40,7 +40,7 @@ class LawyersController < ApplicationController
   # PATCH/PUT /lawyers/1.json
   def update
     if @lawyer.update(lawyer_params)
-      redirect_to(@lawyer, notice: 'Advogado atualizado com sucesso.')
+      redirect_to(@lawyer, notice: t('messages.update_success', model: @lawyer.model_name.human, genero: 'o' ))
     else
       render(:edit)
     end
@@ -51,9 +51,9 @@ class LawyersController < ApplicationController
   def destroy
     begin
       @lawyer.destroy
-      redirect_to(lawyers_path, notice: 'Advogado excluído com sucesso.')
+      redirect_to(lawyers_path, notice: t('messages.destroy_success', model: @lawyer.model_name.human, genero: 'o' ))
     rescue 
-      redirect_to(lawyers_path, notice: 'Não foi possível excluir.')
+      redirect_to(lawyers_path, notice: t('messages.destroy_fail'))
     end
   end
 

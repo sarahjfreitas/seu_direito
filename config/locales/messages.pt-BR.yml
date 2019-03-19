@@ -5,3 +5,7 @@
     edit: Editar %{model}
     save: Salvar
     back: Voltar
+    create_success: '%{model} cadastrad%{genero} com sucesso.'
+    update_success: '%{model} editad%{genero} com sucesso.'
+    destroy_success: '%{model} excluíd%{genero} com sucesso.'
+    destroy_fail: 'Não foi possível excluir. Verique se não há nenhum registro vinculado.'
