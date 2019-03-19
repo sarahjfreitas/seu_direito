@@ -9,3 +9,4 @@
     update_success: '%{model} editad%{genero} com sucesso.'
     destroy_success: '%{model} excluíd%{genero} com sucesso.'
     destroy_fail: 'Não foi possível excluir. Verique se não há nenhum registro vinculado.'
+    delete_confirm: 'Deseja realmente excluir este registro?'

@@ -1,0 +1,15 @@
+%div.table-responsible
+  %table.table.table-striped.table-bordered.table-hover
+    %tr
+      %th= @companies.model.human_attribute_name(:id)
+      %th= @companies.model.human_attribute_name(:name)
+      %th= link_to('<span class="fa fa-plus"></span>'.html_safe, new_company_path , class:"btn btn-success btn-circle")
+    -@companies.each do |company|
+      %tr
+        %td.small_col= company.id
+        %td= company.name
+        %td.small_col
+          = link_to('<span class="fa fa-edit"></span>'.html_safe, edit_company_path(company) , class:"btn btn-primary btn-circle")
+          = link_to('<span class="fa fa-times"></span>'.html_safe, company_path(company) , class:"btn btn-danger btn-circle",method:'delete', data: {confirm: t('messages.delete_confirm')})
+
+%style .small_col{width: 100px;}

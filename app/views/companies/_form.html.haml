@@ -1,17 +1,18 @@
-<%= form_with(model: company, local: true) do |form| %>
-  <% if company.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+=botao_voltar(companies_path)
+%hr
+  - if @company.errors.any?
+    .alert.alert-danger.alert-dismissable
+      %button.close{:type=>"button", :data-dismiss=>"alert", :aria-hidden=>"true" }x
+      %ul
+        - @company.errors.full_messages.each do |msg|
+          %li= msg
 
-      <ul>
-      <% company.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+.panel.panel-default
+  .panel-heading=@company.model_name.human + ' ' + @company.id.to_s 
+  .panel-body
+    = form_with(model: @company , local: true) do |form|
+      .row
+        .col-md-12.form-group
+          = form.label(:name)
+          = form.text_field(:name, class:'form-control border-input')
+      =botao_salvar()

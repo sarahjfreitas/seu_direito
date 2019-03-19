@@ -12,6 +12,6 @@
         %td= lawyer.cpf
         %td.small_col
           = link_to('<span class="fa fa-edit"></span>'.html_safe, edit_lawyer_path(lawyer) , class:"btn btn-primary btn-circle")
-          = link_to('<span class="fa fa-times"></span>'.html_safe, lawyer_path(lawyer) , class:"btn btn-danger btn-circle",method:'delete', data: {confirm: "Deseja realmente excluir este registro?"})
+          = link_to('<span class="fa fa-times"></span>'.html_safe, lawyer_path(lawyer) , class:"btn btn-danger btn-circle",method:'delete', data: {confirm: t('messages.delete_confirm') })
 
-%style .small_col{width: 10%;}
+%style .small_col{width: 100px;}
