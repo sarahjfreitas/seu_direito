@@ -551,7 +551,7 @@ hr {
 
 .btn,
 .navbar .navbar-nav > li > a.btn {
-    border-radius: 20px;
+    /*border-radius: 20px;*/
     box-sizing: border-box;
     border-width: 2px;
     background-color: transparent;
@@ -1178,8 +1178,9 @@ fieldset[disabled] .btn-neutral.active {
 
 .btn-xs {
     font-size: 12px;
-    border-radius: 26px;
-    padding: 2px 5px;
+    /*border-radius: 26px;
+    padding: 2px 5px;*/
+    padding: 2px 10px 2px 5px;
 }
 
 .btn-xs.btn-simple {

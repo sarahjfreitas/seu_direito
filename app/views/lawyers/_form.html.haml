@@ -8,7 +8,7 @@
           %li= msg
 
 .panel.panel-default
-  .panel-heading=#{@lawyer.model_name.human @lawyer.id}
+  .panel-heading=@lawyer.model_name.human + ' ' + @lawyer.id.to_s 
   .panel-body
     = form_with(model: @lawyer , local: true) do |form|
       .row

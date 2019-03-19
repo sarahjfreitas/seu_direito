@@ -5,6 +5,7 @@ class LawyersController < ApplicationController
   # GET /lawyers.json
   def index
     @lawyers = Lawyer.all
+    @titulo = t('messages.listing', model: @lawyers.model_name.human(count: 2) )
   end
 
   # GET /lawyers/1
@@ -15,10 +16,12 @@ class LawyersController < ApplicationController
   # GET /lawyers/new
   def new
     @lawyer = Lawyer.new
+    @titulo = t('messages.new', model: @lawyer.model_name.human )
   end
 
   # GET /lawyers/1/edit
   def edit
+    @titulo = t('messages.edit', model: @lawyer.model_name.human )
   end
 
   # POST /lawyers

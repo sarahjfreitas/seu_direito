@@ -1,0 +1,7 @@
+'pt-BR':
+  messages:
+    listing: Listagem de %{model}
+    new: Adicionar %{model} 
+    edit: Editar %{model}
+    save: Salvar
+    back: Voltar

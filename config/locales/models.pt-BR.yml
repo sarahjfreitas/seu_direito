@@ -1,0 +1,34 @@
+'pt-BR':
+  activerecord:
+    models:
+      person:
+        one: Pessoa
+        other: Pessoas
+      company:
+        one: Empresa
+        other: Empresas
+      lawyer:
+        one: Advogado
+        other: Advogados
+      user:
+        one: Usuário
+        other: Usuários
+    attributes:
+      company:
+        id: '#'
+        name: Nome da Empresa
+        created_at: Criado em
+        updated_at: Atualizado em
+      lawyer:
+        id: '#'
+        name: Nome
+        cpf: CPF
+        created_at: Criado em
+        updated_at: Atualizado em
+      user:
+        id: Código
+        email: Email
+        password: Senha
+        password_confirmation: Confirmação da Senha
+        created_at: Criado em
+        updated_at: Atualizado em
