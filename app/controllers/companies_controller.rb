@@ -29,7 +29,7 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.new(company_params)
     if @company.save
-      redirect_to(@company, notice: t('messages.create_success', model: @company.model_name.human ), genero: 'a' )
+      redirect_to(edit_company_path(@company), notice: t('messages.create_success', model: @company.model_name.human,  genero: 'a' ) )
     else
       render(:new)
     end
@@ -38,12 +38,10 @@ class CompaniesController < ApplicationController
   # PATCH/PUT /companies/1
   # PATCH/PUT /companies/1.json
   def update
-    respond_to do |format|
-      if @company.update(company_params)
-        redirect_to(@company, notice: t('messages.update_success', model: @company.model_name.human, genero: 'a' ) )
-      else
-        render(:edit)
-      end
+    if @company.update(company_params)
+      redirect_to(edit_company_path(@company), notice: t('messages.update_success', model: @company.model_name.human, genero: 'a' ) )
+    else
+      render(:edit)
     end
   end
 
@@ -52,9 +50,9 @@ class CompaniesController < ApplicationController
   def destroy
     begin
       @company.destroy
-      redirect_to(lawyers_path, notice: t('messages.destroy_success', model: @company.model_name.human, genero: 'a' ))
+      redirect_to(companies_path, notice: t('messages.destroy_success', model: @company.model_name.human, genero: 'a' ))
     rescue 
-      redirect_to(lawyers_path, notice: t('messages.destroy_fail') )
+      redirect_to(companies_path, notice: t('messages.destroy_fail') )
     end
   end
 
