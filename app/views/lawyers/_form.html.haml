@@ -1,0 +1,21 @@
+=botao_voltar(lawyers_path)
+%hr
+  - if @lawyer.errors.any?
+    .alert.alert-danger.alert-dismissable
+      %button.close{:type=>"button", :data-dismiss=>"alert", :aria-hidden=>"true" }x
+      %ul
+        - @lawyer.errors.full_messages.each do |msg|
+          %li= msg
+
+.panel.panel-default
+  .panel-heading=#{@lawyer.model_name.human @lawyer.id}
+  .panel-body
+    = form_with(model: @lawyer , local: true) do |form|
+      .row
+        .col-md-3.form-group
+          = form.label(:cpf)
+          = form.text_field(:cpf, class:'form-control')
+        .col-md-9.form-group
+          = form.label(:name)
+          = form.text_field(:name, class:'form-control')
+      =botao_salvar()

@@ -1,0 +1,18 @@
+%h2.page-header=t('messages.listing', model: @lawyers.model_name.human(count: 2) )
+%div.table-responsible
+  %table.table.table-striped.table-bordered.table-hover
+    %tr
+      %th= @lawyers.model.human_attribute_name(:id)
+      %th= @lawyers.model.human_attribute_name(:name)
+      %th= @lawyers.model.human_attribute_name(:cpf)
+      %th= link_to('<span class="fa fa-plus"></span>'.html_safe, new_lawyer_path , class:"btn btn-success btn-circle")
+    -@lawyers.each do |lawyer|
+      %tr
+        %td.small_col= lawyer.id
+        %td= lawyer.name
+        %td= lawyer.cpf
+        %td.small_col
+          = link_to('<span class="fa fa-edit"></span>'.html_safe, edit_lawyer_path(lawyer) , class:"btn btn-primary btn-circle")
+          = link_to('<span class="fa fa-times"></span>'.html_safe, lawyer_path(lawyer) , class:"btn btn-danger btn-circle",method:'delete', data: {confirm: "Deseja realmente excluir este registro?"})
+
+%style .small_col{width: 10%;}

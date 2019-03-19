@@ -26,38 +26,31 @@ class LawyersController < ApplicationController
   def create
     @lawyer = Lawyer.new(lawyer_params)
 
-    respond_to do |format|
-      if @lawyer.save
-        format.html { redirect_to @lawyer, notice: 'Lawyer was successfully created.' }
-        format.json { render :show, status: :created, location: @lawyer }
-      else
-        format.html { render :new }
-        format.json { render json: @lawyer.errors, status: :unprocessable_entity }
-      end
+    if @lawyer.save
+      redirect_to(@lawyer, notice: 'Advogado cadastrado com sucesso.')
+    else
+      render(:new)
     end
   end
 
   # PATCH/PUT /lawyers/1
   # PATCH/PUT /lawyers/1.json
   def update
-    respond_to do |format|
-      if @lawyer.update(lawyer_params)
-        format.html { redirect_to @lawyer, notice: 'Lawyer was successfully updated.' }
-        format.json { render :show, status: :ok, location: @lawyer }
-      else
-        format.html { render :edit }
-        format.json { render json: @lawyer.errors, status: :unprocessable_entity }
-      end
+    if @lawyer.update(lawyer_params)
+      redirect_to(@lawyer, notice: 'Advogado atualizado com sucesso.')
+    else
+      render(:edit)
     end
   end
 
   # DELETE /lawyers/1
   # DELETE /lawyers/1.json
   def destroy
-    @lawyer.destroy
-    respond_to do |format|
-      format.html { redirect_to lawyers_url, notice: 'Lawyer was successfully destroyed.' }
-      format.json { head :no_content }
+    begin
+      @lawyer.destroy
+      redirect_to(lawyers_path, notice: 'Advogado excluído com sucesso.')
+    rescue 
+      redirect_to(lawyers_path, notice: 'Não foi possível excluir.')
     end
   end
 
@@ -69,6 +62,6 @@ class LawyersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lawyer_params
-      params.fetch(:lawyer, {})
+      params.fetch(:lawyer).permit(:name,:cpf)
     end
 end
