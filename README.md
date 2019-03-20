@@ -22,3 +22,14 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+Testes:
+
+Documentação
+
+* Para gerar a documentaçao: rails rdoc:rdoc 
+
+* Para apagar a documentaçao: rails rdoc:clobber_rdoc 
+
+* Para regerar a documentaçao: rails rdoc:rerdoc 
