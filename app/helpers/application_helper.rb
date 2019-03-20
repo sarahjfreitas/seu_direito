@@ -6,4 +6,7 @@ module ApplicationHelper
   def botao_voltar(link)
     link_to('<i class="fa fa-arrow-left"></i> '.html_safe + t('messages.back') + ' ', link, class: "btn btn-xs btn-default")
   end
+
+  def show_error_notification(mensagem)
+  end
 end

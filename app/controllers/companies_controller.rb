@@ -52,7 +52,7 @@ class CompaniesController < ApplicationController
       @company.destroy
       redirect_to(companies_path, notice: t('messages.destroy_success', model: @company.model_name.human, genero: 'a' ))
     rescue 
-      redirect_to(companies_path, notice: t('messages.destroy_fail') )
+      redirect_to(companies_path, alert: t('messages.destroy_fail') )
     end
   end
 

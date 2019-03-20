@@ -91,3 +91,13 @@
                   %a{href:"#"} Home
         
   = javascript_include_tag('application')
+  - if notice.present?
+    :javascript
+      $(document).ready( function() {
+        show_success_notification('#{notice}');
+      } );
+  - if alert.present?
+    :javascript
+      $(document).ready( function() {
+        show_success_notification('#{alert}');
+      } );
