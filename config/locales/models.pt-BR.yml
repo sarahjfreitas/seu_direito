@@ -13,6 +13,7 @@
       user:
         one: Usuário
         other: Usuários
+        remember_me: Mantenha Conectado
     attributes:
       company:
         id: '#'

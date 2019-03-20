@@ -517,6 +517,11 @@ hr {
     -ms-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
     transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
 }
+.panel-center-small{
+    width: 60%;
+    float: none;
+    margin: auto;
+}
 
 .main-panel > .content {
     padding: 30px 15px;

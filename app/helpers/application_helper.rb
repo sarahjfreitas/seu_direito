@@ -7,6 +7,10 @@ module ApplicationHelper
     link_to('<i class="fa fa-arrow-left"></i> '.html_safe + t('messages.back') + ' ', link, class: "btn btn-xs btn-default")
   end
 
+  def botao_login
+    ('<div class="pull-right"><button type="submit" class="btn btn-primary"><span class="fa fa-sign-in"></span> '+t('messages.login') +' </button></div>').html_safe
+  end
+
   def show_error_notification(mensagem)
   end
 end
