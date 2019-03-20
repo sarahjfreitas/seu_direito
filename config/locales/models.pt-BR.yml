@@ -13,7 +13,6 @@
       user:
         one: Usuário
         other: Usuários
-        remember_me: Mantenha Conectado
     attributes:
       company:
         id: '#'
@@ -31,5 +30,6 @@
         email: Email
         password: Senha
         password_confirmation: Confirmação da Senha
+        remember_me: Mantenha-me conectado
         created_at: Criado em
         updated_at: Atualizado em
